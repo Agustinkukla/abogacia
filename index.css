@@ -1,0 +1,948 @@
+* {
+    font-family: Times New Roman;
+    box-sizing: border-box;
+    
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  
+}
+ body {
+  width: 100%;
+  height: 100% ;
+}
+
+/* indice */
+ button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+ }
+ .burger,
+ .menu {
+   position: fixed;
+ }
+ .burger {
+  z-index: 4; /* Controla el orden de apilamiento del elemento */
+  top: 0; /* Posiciona el elemento en la parte superior */
+  left: 0; /* Posiciona el elemento en la parte izquierda */
+  bottom: 40;
+  display: grid; /* Establece el elemento como una cuadrícula */
+  place-items: left; /* Centra el contenido dentro del elemento */
+  width: 100px; /* Establece el ancho del elemento a 88 píxeles */
+  height: 75px; /* Establece la altura del elemento a 88 píxeles */
+  background-image: url("icons8-menú-30.png"); /* Establece una imagen de fondo para el elemento */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  background-position: center; /* Posiciona la imagen de fondo en el centro */
+ }
+ body.open .burger{
+    background-image: url("icons8-cancelar.gif");
+  }
+  .background {
+    position: fixed;
+    z-index: 2;
+    top: 44px;
+    left: 44px;
+    aspect-ratio: 1 / 1;
+    translate: -50% -50%;
+    height: 88px;
+    background: #07030a;
+    border-radius: 50%;
+    opacity: 0;
+    transition: 0.6s;
+  }
+  body.open .background {
+    height: 300vh;
+    opacity: 0.8;
+  }
+  .menu {
+    z-index: 3;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.05s;
+  }
+  .menu nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 100px;
+  }
+  body.open .menu {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  body .menu nav:hover > a {
+    opacity: 0.25;
+  }
+  
+  body .menu nav > a:hover {
+    opacity: 1;
+    translate: 8px 0;
+  }
+  
+  .menu a {
+    position: relative;
+    color: #f9f9f9;
+    font-size: 32px;
+    font-family: "Euclid Circular A";
+    padding: 20px 0 20px 20px;
+    text-decoration: none;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  
+  .menu a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -26px;
+    translate: 0 -50%;
+    margin-top: 2px;
+    width: 10px;
+    height: 10px;
+    border-top: 3px solid #ffffff;
+    border-right: 3px solid #ffffff;
+    opacity: 0;
+    rotate: 45deg;
+    transition: 0.3s;
+  }
+  
+  .menu a:hover::after {
+    opacity: 1;
+  }
+  
+  @keyframes appear {
+    0% {
+      opacity: 0;
+      translate: -30px 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  body.open .menu a {
+    opacity: 1;
+    animation: appear 0.35s backwards;
+  }
+
+  /* logo */
+  .indice {
+    background-color: #1e2326;
+  }
+  .Titulo {
+    color: #fff;
+    
+    
+    font-family: 'Courier New', Courier, monospace;
+    }
+
+  .barra {
+      height: 90px;
+      margin-bottom: 20px;
+      padding-top: 19px;
+      
+    }
+    
+    
+    
+  
+  .arriba{
+    font-size: 30px;
+    
+    margin-left: 90px;
+    
+  }
+
+
+  /* inicio */
+  .Inicio {
+    background-image: url(martillo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -40px;
+  }
+
+video-container {
+  position: relative;
+  padding-bottom: 40%;
+  width: 40%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s, transform 1s;
+}
+
+.youtube-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-zona {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:  40%;
+  height: 50%;
+}
+   .fondo-titu {
+      color: white;
+      background: orange;
+      width: 400px;
+      transform: translateX(-100%);
+      transition: opacity 1s, transform 1s;
+    }
+    
+    .fondo-titu2 {
+      width: 890px;
+      height: 55px;
+      background: white;
+      
+      overflow: hidden;
+      margin-left: 40px;
+      clip-path: polygon(42% 0, 100% 0, 100% 100%, 42% 100%);
+      margin-top: 40px;
+      transform: translateX(-100%);
+      transition: opacity 1s, transform 1s;
+    }
+
+  
+  .presentacion {
+    font-size: 50px;
+    text-align: left;
+    color: rgb(170, 116, 57);
+  }
+  
+  .inicio-director {
+    margin-left: 40vh;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 1s, transform 1s;
+  }
+  
+  .inicio-titulo {
+    margin-left: 5px;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 1s, transform 1s;
+  }
+
+   /* servicios */
+    #Servicios{
+      background-color: #1e2326;
+      color:#fff;
+    } 
+    .titulo-servicios{
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0; /* Inicialmente oculto */
+      transform: translateX(-100%); /* Fuera de la pantalla a la izquierda */
+       transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Agregar transición */
+      
+    }
+    /*card1*/
+    .container-card{
+      width: 100%;
+      display: flex;
+        flex-wrap: wrap; /* Añadimos flex-wrap: wrap para que las tarjetas se envuelvan a una nueva línea si no caben en el contenedor */
+      justify-content: center; /* Centramos las tarjetas horizontalmente */
+      max-width: 1100px;
+      margin: auto;
+    }
+   
+    .card{
+        width: calc(33.33% - 40px); /* Establece el ancho del elemento al 33.33% del ancho de su contenedor padre menos 40 píxeles. */
+        margin: 20px; /* Agrega un margen de 20 píxeles en todos los lados del elemento. */
+        border-radius: 6px; /* Aplica un radio de borde de 6 píxeles para crear esquinas redondeadas en el elemento. */
+        overflow: hidden; /* Oculta cualquier contenido que exceda los límites del elemento. */
+        background: rgb(19, 17, 16); /* Establece el color de fondo del elemento a un gris oscuro con valores RGB de (19, 17, 16). */
+        box-shadow: 0px 1px 10px rgba(0,0,0,0.2); /* Agrega una sombra al elemento. Tiene un desplazamiento horizontal de 0 píxeles, un desplazamiento vertical de 1 píxel, un radio de desenfoque de 10 píxeles y un color con valores RGBA de (0, 0, 0, 0.2). */
+      transition: all 400ms ease-out; /* Especifica que cualquier cambio en las propiedades CSS del elemento debe tener una transición suave durante una duración de 400 milisegundos utilizando una función de aceleración llamada "ease-out". */
+cursor: default; /* Establece el estilo del cursor en el cursor predeterminado, generalmente una flecha, al pasar el cursor sobre el elemento. */
+    }
+    .card:hover{
+      box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+      transform: translateY(-3%);
+    }
+    .card img{
+      width: 100%;
+      height: 210px;
+    }
+    .card .contenido-card{
+      padding: 15px;
+      text-align: center;
+    }
+    .card .contenido-card h3{
+      margin-bottom: 15px;
+      color: #15CF8A;
+    }
+    .card .contenido-card p{
+      line-height: 1.8;
+      color: #d4caca;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .card .contenido-card a{
+      display: inline-block;
+      padding: 10px;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #2fb4cc;
+      border: 1px solid #2fb4cc;
+      border-radius: 4px;
+      transition: all 400ms ease;
+      margin-bottom: 5px;
+    }
+    .card .contenido-card a:hover{
+      background: #2fb4cc;
+      color: #ffffff;
+    }
+     /*card2*/
+     .container-card2{
+      width: 100%;
+      display: flex;
+        flex-wrap: wrap; /* Añadimos flex-wrap: wrap para que las tarjetas se envuelvan a una nueva línea si no caben en el contenedor */
+      justify-content: center; /* Centramos las tarjetas horizontalmente */
+      max-width: 1100px;
+      margin: auto;
+    }
+    
+    .card2{
+        width: calc(33.33% - 40px);
+      margin: 20px;
+      border-radius: 6px;
+      overflow: hidden;
+      background:rgb(19, 17, 16);
+      box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+      transition: all 400ms ease-out;
+      cursor: default;
+    }
+    .card2:hover{
+      box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+      transform: translateY(-3%);
+    }
+    .card2 img{
+      width: 100%;
+      height: 210px;
+    }
+    .card2 .contenido-card2{
+      padding: 15px;
+      text-align: center;
+    }
+    .card2 .contenido-card2 h3{
+      margin-bottom: 15px;
+      color: #15CF8A;
+    }
+    .card2 .contenido-card2 p{
+      line-height: 1.8;
+      color: #e7e1e1;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .card2 .contenido-card2 a{
+      display: inline-block;
+      padding: 10px;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #2fb4cc;
+      border: 1px solid #2fb4cc;
+      border-radius: 4px;
+      transition: all 400ms ease;
+      margin-bottom: 5px;
+    }
+    .card2 .contenido-card2 a:hover{
+      background: #2fb4cc;
+      color: #fff;
+    }
+    /*card3*/
+    .container-card3{
+      width: 100%;
+      display: flex;
+        flex-wrap: wrap; /* Añadimos flex-wrap: wrap para que las tarjetas se envuelvan a una nueva línea si no caben en el contenedor */
+      justify-content: center; /* Centramos las tarjetas horizontalmente */
+      max-width: 1100px;
+      margin: auto;
+    }
+   
+    .card3{
+        width: calc(33.33% - 40px);
+      margin: 20px;
+      border-radius: 6px;
+      overflow: hidden;
+      background:rgb(19, 17, 16);
+      box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+      transition: all 400ms ease-out;
+      cursor: default;
+    }
+    .card3:hover{
+      box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+      transform: translateY(-3%);
+    }
+    .card3 img{
+      width: 100%;
+      height: 210px;
+    }
+    .card3 .contenido-card3{
+      padding: 15px;
+      text-align: center;
+    }
+    .card3 .contenido-card3 h3{
+      margin-bottom: 15px;
+      color: #15CF8A;
+    }
+    .card3 .contenido-card3 p{
+      line-height: 1.8;
+      color: #e9e4e4;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .card3 .contenido-card3 a{
+      display: inline-block;
+      padding: 10px;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #2fb4cc;
+      border: 1px solid #2fb4cc;
+      border-radius: 4px;
+      transition: all 400ms ease;
+      margin-bottom: 5px;
+    }
+    .card3 .contenido-card3 a:hover{
+      background: #2fb4cc;
+      color: #fff;
+    }
+    /*equipo*/
+    .miembros {
+      background-color: #252a2e;
+    }
+    /* card */
+    .Miembros {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+    }
+    
+    .container-miembros {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h2 {
+      color:#15CF8A;
+      font-size: 25px;
+      font-family: American Typewriter (serif);
+    }
+    
+    .tarj-miembros {
+      display: grid; /* Establece el elemento como un grid container */
+      grid-template-columns: 300px; /* Establece una única columna de 300px */
+      grid-template-rows: 300px 210px 80px; /* Establece tres filas con alturas respectivas de 300px, 210px y 80px */
+      grid-template-areas: "image" "text" "stats"; /* Asigna áreas nombradas a cada una de las filas */
+    
+      border-radius: 18px; /* Establece el radio de borde de 18px */
+      background: rgb(43, 42, 42); /* Establece el color de fondo en rgb(43, 42, 42) */
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.9); /* Agrega una sombra al elemento */
+      font-family: roboto; /* Establece la fuente de texto a Roboto */
+      text-align: center; /* Centra el texto dentro del elemento */
+    
+      transition: 0.5s ease; /* Establece una transición suave de 0.5 segundos */
+      cursor: pointer; /* Cambia el cursor al pasar por encima del elemento */
+      margin: 50px; /* Establece un margen exterior de 30px */
+    }
+    .tarj-image {
+      grid-area: image; /* Asigna el área nombrada 'image' al elemento */
+      background: url("6c8b60027a6a650297abc56f114b2ea1.jpg"); /* Establece la imagen de fondo usando la URL proporcionada */
+      border-top-left-radius: 15px; /* Establece el radio de borde superior izquierdo en 15px */
+      border-top-right-radius: 15px; /* Establece el radio de borde superior derecho en 15px */
+      background-size: cover; /* Ajusta el tamaño de la imagen de fondo para cubrir completamente el elemento */
+    }
+    .tarj-text {
+      grid-area: text; /* Asigna el área nombrada 'text' al elemento */
+      margin: 25px; /* Establece un margen de 25px alrededor del elemento */
+    }
+    
+    .tarj-text .date {
+      color: rgb(245, 231, 237); /* Establece el color del texto en rgb(245, 231, 237) */
+      font-size: 13px; /* Establece el tamaño de fuente en 13px */
+    }
+    
+    .tarj-text p {
+      color: rgb(253, 250, 250); /* Establece el color del texto en rgb(253, 250, 250) */
+      font-size: 15px; /* Establece el tamaño de fuente en 15px */
+      font-weight: 300; /* Establece el grosor de fuente en 300 (normal) */
+    }
+    
+    
+    .tarj-stats {
+      grid-area: stats; /* Asigna el área nombrada 'stats' al elemento */
+      display: grid; /* Establece el elemento como un grid container */
+      grid-template-columns: 1fr 1fr 1fr; /* Crea tres columnas de tamaño flexible */
+      grid-template-rows: 1fr; /* Crea una sola fila de tamaño flexible */
+      border-bottom-left-radius: 15px; /* Establece el radio de borde inferior izquierdo en 15px */
+      border-bottom-right-radius: 15px; /* Establece el radio de borde inferior derecho en 15px */
+      background: rgb(27, 25, 26); /* Establece el color de fondo en rgb(27, 25, 26) */
+    }
+    
+    .tarj-stats .stat {
+      padding: 10px; /* Establece un relleno interno de 10px */
+      display: flex; /* Establece el elemento como un flex container */
+      align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+      justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+      flex-direction: column; /* Establece la dirección de los elementos en una columna */
+      color: white; /* Establece el color del texto en blanco */
+    }
+    
+    .tarj-stats .stat-Border {
+      border-left: 1px solid rgb(27, 25, 26); /* Establece un borde izquierdo de 1px sólido en rgb(27, 25, 26) */
+      border-right: 1px solid rgb(27, 25, 26); /* Establece un borde derecho de 1px sólido en rgb(27, 25, 26) */
+    }
+    
+    .tarj-stats .value {
+      font-size: 22px; /* Establece el tamaño de fuente en 22px */
+      font-weight: 500; /* Establece el grosor de fuente en 500 (medio) */
+    }
+    
+    .tarj-stats .value sup {
+      font-size: 12px; /* Establece el tamaño de fuente en 12px */
+    }
+    
+    .tarj-stats .type {
+      font-size: 11px; /* Establece el tamaño de fuente en 11px */
+      font-weight: 300; /* Establece el grosor de fuente en 300 (normal) */
+      text-transform: uppercase; /* Transforma el texto a mayúsculas */
+      
+    }
+     
+    
+    .tarj:hover {
+      transform: scale(1.15); /* Aplica una escala del 115% al elemento al pasar el cursor sobre él */
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.6); /* Agrega una sombra al elemento con valores de desplazamiento y opacidad */
+    }
+    /* card2 */
+    .tarj-image.tarj2 {
+      background: url(422385ef4bc15ea13fa3f1dc8074ecdb.jpg);
+      background-size: cover;
+    
+    }
+    .tarj-text.tarj2 .date {
+      color: white;
+    }
+    
+    .tarj-stats.tarj2 {
+    grid-area: stats; /* Asigna el área nombrada 'stats' al elemento */
+    display: grid; /* Establece el elemento como un grid container */
+    grid-template-columns: 1fr 1fr 1fr; /* Crea tres columnas de tamaño flexible */
+    grid-template-rows: 1fr; /* Crea una sola fila de tamaño flexible */
+    border-bottom-left-radius: 15px; /* Establece el radio de borde inferior izquierdo en 15px */
+    border-bottom-right-radius: 15px; /* Establece el radio de borde inferior derecho en 15px */
+    background: rgb(27, 25, 26); /* Establece el color de fondo en rgb(27, 25, 26) */
+  }
+  
+  .tarj-stats.tarj2 .stat {
+    padding: 10px; /* Establece un relleno interno de 10px */
+    display: flex; /* Establece el elemento como un flex container */
+    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+    flex-direction: column; /* Establece la dirección de los elementos en una columna */
+    color: white; /* Establece el color del texto en blanco */
+  }
+  
+  .tarj-stats.tarj2 .stat-Border {
+    border-left: 1px solid rgb(27, 25, 26); /* Establece un borde izquierdo de 1px sólido en rgb(27, 25, 26) */
+    border-right: 1px solid rgb(27, 25, 26); /* Establece un borde derecho de 1px sólido en rgb(27, 25, 26) */
+  }
+  
+  .tarj-stats.tarj2 .value-miembros {
+    font-size: 17px; /* Establece el tamaño de fuente en 22px */
+    font-weight: 500; /* Establece el grosor de fuente en 500 (medio) */
+  }
+  
+  .tarj-stats.tarj2 .value sup {
+    font-size: 12px; /* Establece el tamaño de fuente en 12px */
+  }
+  
+  .tarj-stats.tarj2 .type {
+    font-size: 11px; /* Establece el tamaño de fuente en 11px */
+    font-weight: 300; /* Establece el grosor de fuente en 300 (normal) */
+    text-transform: uppercase; /* Transforma el texto a mayúsculas */
+  }
+  
+  .tarj-miembros:hover {
+    transform: scale(1.15); /* Aplica una escala del 115% al elemento al pasar el cursor sobre él */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6); /* Agrega una sombra al elemento con valores de desplazamiento y opacidad */
+  }
+  /* card3 */
+  /* Establece el fondo de una imagen usando una URL y ajusta su tamaño para cubrir completamente el contenedor */
+  .tarj-image.tarj3 {
+      background: url("8d6239f080f7559ddd14504026b6862b.jpg");
+      background-size: cover;
+    }
+    
+    /* Cambia el color del texto de la clase 'date' a blanco */
+    .tarj-text.tarj3 .date {
+      color: white;
+    }
+    
+    /* Agrega un borde izquierdo y derecho a la clase 'border' dentro de la clase 'card-stats.card6' */
+    .tarj-stats.tarj3 .border {
+      border-left: 1px solid rgb(27, 25, 26);
+      border-right: 1px solid rgb(27, 25, 26);
+    }
+    
+    /* Establece el fondo de la clase 'card-stats.card6' a un color específico */
+    .tarj-stats.tarj3 {
+      background: rgb(27, 25, 26);
+    }
+  
+    /*new card*/
+    
+    .container-miembros2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tarj-image.tarj4 {
+      grid-area: image; /* Asigna el área nombrada 'image' al elemento */
+      background: url("8624ed44e757bd107dee4890e1b9af32.jpg"); /* Establece la imagen de fondo usando la URL proporcionada */
+      border-top-left-radius: 15px; /* Establece el radio de borde superior izquierdo en 15px */
+      border-top-right-radius: 15px; /* Establece el radio de borde superior derecho en 15px */
+      background-size: cover; /* Ajusta el tamaño de la imagen de fondo para cubrir completamente el elemento */
+    }
+    .tarj-stats {
+    grid-area: stats; /* Asigna el área nombrada 'stats' al elemento */
+    display: grid; /* Establece el elemento como un grid container */
+    grid-template-columns: 1fr 1fr 1fr; /* Crea tres columnas de tamaño flexible */
+    grid-template-rows: 1fr; /* Crea una sola fila de tamaño flexible */
+    border-bottom-left-radius: 15px; /* Establece el radio de borde inferior izquierdo en 15px */
+    border-bottom-right-radius: 15px; /* Establece el radio de borde inferior derecho en 15px */
+    background: rgb(27, 25, 26); /* Establece el color de fondo en rgb(27, 25, 26) */
+    }
+    
+    .tarj-stats .stat {
+        padding: 10px; /* Establece un relleno interno de 10px */
+        display: flex; /* Establece el elemento como un flex container */
+        align-items: center; /* Centra verticalmente los  elementos dentro del contenedor */
+        justify-content: center; /* Centra horizontalmente los elementos dentro del  contenedor */
+        flex-direction: column; /* Establece la dirección de los elementos en una columna */
+        color: white; /* Establece el color del texto en blanco */
+    }
+    .tarj-stats.tarj6 .border {
+      border-left: 1px solid rgb(27, 25, 26); /* Establece un borde izquierdo de 1px sólido en rgb(27, 25, 26) */
+      border-right: 1px solid rgb(27, 25, 26); /* Establece un borde derecho de 1px sólido en rgb(27, 25, 26) */
+    }
+    /* 5ta */
+    .tarj-image.tarj5 {
+      background: url("123.jpg");
+      background-size: cover;
+    }
+  
+    /* 6ta */
+    .tarj-image.tarj6 {
+      background: url("febd4312fff8ef44bd00ece6f6116d70.jpg");
+      background-size: cover;
+    }
+
+    /*contacto */
+    a{
+      text-decoration: none;
+  }
+  
+  .alert{
+      display: block;
+      padding: 12px 20px;
+      background: #f8d7da;
+      color: #721c24;
+      margin-bottom: 10px;
+      border: 10px solid #f5c6cb;
+  }
+  
+  .contacto{
+      background-image: url(oficina.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; /* Centra la imagen de fondo en el contenedor */
+      font-family: 'Open Sans',sans-serif;
+      font-size: 16px;
+  }
+  
+  .contenedor{
+      width: 90%;
+      height: 70%;
+      max-width: 1000px;
+      background: rgb(19, 17, 16);
+      padding: 40px;
+      margin: 20px auto;
+      box-shadow: 0px 1px 2px rgba(3, 3, 3, 0.5);
+      margin-bottom: 0;
+      margin-top: 0;
+  }
+  
+  .contenedor h1{
+      font-size: 30px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 25px;
+      color: #15CF8A;
+  }
+  
+  .contenido{
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      flex-wrap: wrap;
+  }
+  
+  .contenido .info,
+  .contenido .formulario{
+      width: 50%;
+  }
+  
+  /* ===========================================
+  Estilos info
+  ============================================== */
+  .info{
+      padding-left: 10px;
+  }
+  
+  .info .col{
+      width: 100%;
+      display: flex;
+      margin-bottom: 15px;
+      font-size: 16px;
+      align-items: center;
+      flex-wrap: nowrap;
+  }
+  
+  .info .col .icono{
+      color: #15CF8A;
+      margin-right: 10px;
+  }
+  
+  .info .col p{
+      color: #999;
+  }
+  
+  .info .redes-s{
+      width: 100%;
+      overflow: hidden;
+      padding-left: 25px;
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .info .redes-s a{
+      display: flex;
+      width: 40px;
+      height: 40px;
+      background: #15CF8A;
+      color: #fff;
+      margin: 5px;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      border-radius: 50%;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, .4);
+  }
+  .info .redes-s a:hover{
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, .4);
+      /* background: #000; */
+  }
+  
+  /* ===========================================
+  Estilos formulario
+  ============================================== */
+  
+  .formulario{
+      padding-left: 10px;
+  }
+  
+  .formulario input[type='text'],
+  .formulario textarea{
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 12px 20px;
+      border: 1px solid #999;
+      color: #999;
+      font-family: 'Open Sans',sans-serif;
+      font-weight: 400;
+      outline: 0;
+  }
+  
+  .formulario textarea{
+      max-width: 100%;
+      min-width: 100%;
+      min-height: 150px;
+      max-height: 200px;
+  }
+  
+  .formulario input[type='text']:focus,
+  .formulario textarea:focus{
+      border: 1px solid #15CF8A;
+  }
+  
+  .formulario #btn{
+      padding: 12px 30px;
+      border: transparent;
+      background: #15CF8A;
+      color: #fff;
+      cursor: pointer;
+      float: right;
+  }
+  
+
+  /* footer */
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  main {
+    width: 100%;
+  }
+  footer {
+    
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.9);
+    box-shadow: 0 16px 70px -8px rgba(0, 0, 0, 0.25);
+    
+    transition: background 0.3s linear;
+  }
+  .contai {
+    max-width: 1240px;
+    padding: 20px 30px;
+    margin: auto;
+  }
+  .content_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .profil .logo_area{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .profil .logo_area img{
+    border-radius: 50%;
+    border: 1px solid #fff;
+  }
+  .logo_area .logo_name{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 1rem;
+    color: #15CF8A;
+  }
+  .desc_area{
+    max-width: 320px;
+    margin-bottom: 1.25rem;
+  }
+  .desc_area p{
+    color: #828282;
+    font-weight: 400;
+    line-height: 28px;
+  }
+  .social_media a{
+    color: #15CF8A;
+    margin-right: 22px;
+    font-size: 24px;
+  }
+  .social_media a:hover {
+    color: #313131;
+  }
+  .service_area {
+    display: flex;
+  }
+  .service_header {
+    margin-right: 40px;
+  }
+  li.service_name {
+    color: #15CF8A;
+    font-weight: 600;
+  }
+  .service_header li a{
+    color: #828282;
+    padding-bottom: 1px;
+    font-weight:400;
+  }
+  .service_header li a:hover{
+    color: #15CF8A;
+    
+  }
+  .service_header li {
+    margin-bottom: 10px;
+  }
+  hr{
+    height: 1px;
+    border: NONE;
+    background-color: #ff0606;
+    margin-bottom: 1rem;
+  }
+  .footer_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+  }
+  .copy_right {
+    color: #828282;
+    display: flex;
+    align-items: center;
+  }
+  .copy_right span {
+    margin-left: 8px;
+    font-weight: 400x;
+    letter-spacing: 0.135rem;
+  }
+  
+  .tou a{
+    color: #828282;
+    MARGIN-LEFT: 1.5rem; 
+  }
+  .tou a:hover {
+    color: #313131;
+  }
+  @media screen and(max-with: 800px) {
+    .content_footer {
+      flex-wrap: wrap;
+      justify-content: left;
+    }
+    .service_area {
+      flex-wrap: wrap;
+      justify-content: left;
+    }
+  }
+  
+    
+    
+    
+    
+    
+    
+    
+    
